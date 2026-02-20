@@ -1,0 +1,183 @@
+is_global = true
+build_property.TargetFramework = net10.0
+build_property.TargetFramework = net10.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v10.0
+build_property.RootNamespace = SchoolERP
+build_property.RootNamespace = SchoolERP
+build_property.ProjectDir = /Users/avyukt/Github/NewSOFT/SchoolERP/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 9.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /Users/avyukt/Github/NewSOFT/SchoolERP
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 10.0
+build_property.EnableCodeStyleSeverity = 
+
+[/Users/avyukt/Github/NewSOFT/SchoolERP/Views/Attendances/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXR0ZW5kYW5jZXMvQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/avyukt/Github/NewSOFT/SchoolERP/Views/Attendances/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXR0ZW5kYW5jZXMvRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/avyukt/Github/NewSOFT/SchoolERP/Views/Attendances/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXR0ZW5kYW5jZXMvRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/avyukt/Github/NewSOFT/SchoolERP/Views/Attendances/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXR0ZW5kYW5jZXMvRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/avyukt/Github/NewSOFT/SchoolERP/Views/Attendances/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXR0ZW5kYW5jZXMvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/avyukt/Github/NewSOFT/SchoolERP/Views/Classrooms/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2xhc3Nyb29tcy9DcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/avyukt/Github/NewSOFT/SchoolERP/Views/Classrooms/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2xhc3Nyb29tcy9EZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/avyukt/Github/NewSOFT/SchoolERP/Views/Classrooms/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2xhc3Nyb29tcy9EZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/avyukt/Github/NewSOFT/SchoolERP/Views/Classrooms/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2xhc3Nyb29tcy9FZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/avyukt/Github/NewSOFT/SchoolERP/Views/Classrooms/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2xhc3Nyb29tcy9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/avyukt/Github/NewSOFT/SchoolERP/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/avyukt/Github/NewSOFT/SchoolERP/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/avyukt/Github/NewSOFT/SchoolERP/Views/Payrolls/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGF5cm9sbHMvQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/avyukt/Github/NewSOFT/SchoolERP/Views/Payrolls/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGF5cm9sbHMvRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/avyukt/Github/NewSOFT/SchoolERP/Views/Payrolls/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGF5cm9sbHMvRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/avyukt/Github/NewSOFT/SchoolERP/Views/Payrolls/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGF5cm9sbHMvRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/avyukt/Github/NewSOFT/SchoolERP/Views/Payrolls/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGF5cm9sbHMvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/avyukt/Github/NewSOFT/SchoolERP/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/avyukt/Github/NewSOFT/SchoolERP/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/avyukt/Github/NewSOFT/SchoolERP/Views/SmartAssistant/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU21hcnRBc3Npc3RhbnQvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/avyukt/Github/NewSOFT/SchoolERP/Views/Students/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3R1ZGVudHMvQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/avyukt/Github/NewSOFT/SchoolERP/Views/Students/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3R1ZGVudHMvRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/avyukt/Github/NewSOFT/SchoolERP/Views/Students/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3R1ZGVudHMvRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/avyukt/Github/NewSOFT/SchoolERP/Views/Students/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3R1ZGVudHMvRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/avyukt/Github/NewSOFT/SchoolERP/Views/Students/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3R1ZGVudHMvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/avyukt/Github/NewSOFT/SchoolERP/Views/Subjects/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3ViamVjdHMvQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/avyukt/Github/NewSOFT/SchoolERP/Views/Subjects/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3ViamVjdHMvRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/avyukt/Github/NewSOFT/SchoolERP/Views/Subjects/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3ViamVjdHMvRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/avyukt/Github/NewSOFT/SchoolERP/Views/Subjects/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3ViamVjdHMvRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/avyukt/Github/NewSOFT/SchoolERP/Views/Subjects/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3ViamVjdHMvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/avyukt/Github/NewSOFT/SchoolERP/Views/Teachers/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGVhY2hlcnMvQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/avyukt/Github/NewSOFT/SchoolERP/Views/Teachers/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGVhY2hlcnMvRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/avyukt/Github/NewSOFT/SchoolERP/Views/Teachers/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGVhY2hlcnMvRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/avyukt/Github/NewSOFT/SchoolERP/Views/Teachers/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGVhY2hlcnMvRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/avyukt/Github/NewSOFT/SchoolERP/Views/Teachers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGVhY2hlcnMvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/avyukt/Github/NewSOFT/SchoolERP/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/avyukt/Github/NewSOFT/SchoolERP/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/avyukt/Github/NewSOFT/SchoolERP/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-v9suycokbg

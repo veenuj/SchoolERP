@@ -1,0 +1,74 @@
+@model SchoolERP.Models.Subject
+
+@{
+    ViewData["Title"] = "Modify Subject";
+}
+
+<div class="container-fluid mt-4 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+            
+            <div class="text-center mb-4">
+                <h2 class="fw-bold text-dark">
+                    <i class="fa-solid fa-pen-to-square text-primary me-2"></i> Edit Subject Details
+                </h2>
+                <p class="text-muted">Update the course name, academic code, or credit valuation for this subject.</p>
+            </div>
+
+            <div class="card shadow-sm border-0 rounded-4">
+                <div class="card-body p-5">
+                    <form asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3 fw-bold"></div>
+                        
+                        <input type="hidden" asp-for="Id" />
+                        
+                        <div class="mb-4">
+                            <label asp-for="Name" class="form-label fw-bold text-secondary">Subject Name</label>
+                            <div class="input-group shadow-sm">
+                                <span class="input-group-text bg-light border-end-0"><i class="fa-solid fa-signature text-muted"></i></span>
+                                <input asp-for="Name" class="form-control border-start-0" placeholder="e.g. Advanced Mathematics" />
+                            </div>
+                            <span asp-validation-for="Name" class="text-danger small mt-1 d-block"></span>
+                        </div>
+
+                        <div class="row g-4 mb-4">
+                            <div class="col-md-6">
+                                <label asp-for="Code" class="form-label fw-bold text-secondary">Subject Code</label>
+                                <div class="input-group shadow-sm">
+                                    <span class="input-group-text bg-light border-end-0"><i class="fa-solid fa-barcode text-muted"></i></span>
+                                    <input asp-for="Code" class="form-control border-start-0" placeholder="e.g. MATH101" />
+                                </div>
+                                <span asp-validation-for="Code" class="text-danger small mt-1 d-block"></span>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label asp-for="Credits" class="form-label fw-bold text-secondary">Credits / Points</label>
+                                <div class="input-group shadow-sm">
+                                    <span class="input-group-text bg-light border-end-0"><i class="fa-solid fa-medal text-muted"></i></span>
+                                    <input asp-for="Credits" class="form-control border-start-0" placeholder="4" type="number" />
+                                </div>
+                                <span asp-validation-for="Credits" class="text-danger small mt-1 d-block"></span>
+                            </div>
+                        </div>
+
+                        <hr class="text-muted opacity-25 my-4" />
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a asp-action="Index" class="btn btn-light border shadow-sm px-4 rounded-3 text-secondary fw-semibold">
+                                <i class="fa-solid fa-arrow-left me-2"></i> Cancel
+                            </a>
+                            <button type="submit" class="btn btn-primary px-5 shadow-sm rounded-3 fw-bold">
+                                <i class="fa-solid fa-floppy-disk me-2"></i> Save Changes
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

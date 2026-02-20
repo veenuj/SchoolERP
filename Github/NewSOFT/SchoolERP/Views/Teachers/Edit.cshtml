@@ -1,0 +1,84 @@
+@model SchoolERP.Models.Teacher
+
+@{
+    ViewData["Title"] = "Edit Faculty Profile";
+}
+
+<div class="container-fluid mt-4 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+            
+            <div class="text-center mb-4">
+                <h2 class="fw-bold text-dark">
+                    <i class="fa-solid fa-user-pen text-primary me-2"></i> Edit Faculty Profile
+                </h2>
+                <p class="text-muted">Update the teacher's personal details or departmental assignment.</p>
+            </div>
+
+            <div class="card shadow-sm border-0 rounded-4">
+                <div class="card-body p-5">
+                    <form asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3 fw-bold"></div>
+                        
+                        <input type="hidden" asp-for="Id" />
+                        
+                        <div class="row g-4 mb-3">
+                            <div class="col-md-6">
+                                <label asp-for="FirstName" class="form-label fw-bold text-secondary">First Name</label>
+                                <div class="input-group shadow-sm">
+                                    <span class="input-group-text bg-light border-end-0"><i class="fa-regular fa-user text-muted"></i></span>
+                                    <input asp-for="FirstName" class="form-control border-start-0" placeholder="e.g. Alan" />
+                                </div>
+                                <span asp-validation-for="FirstName" class="text-danger small mt-1 d-block"></span>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label asp-for="LastName" class="form-label fw-bold text-secondary">Last Name</label>
+                                <div class="input-group shadow-sm">
+                                    <input asp-for="LastName" class="form-control" placeholder="e.g. Turing" />
+                                </div>
+                                <span asp-validation-for="LastName" class="text-danger small mt-1 d-block"></span>
+                            </div>
+                        </div>
+
+                        <div class="row g-4 mb-4">
+                            <div class="col-md-6">
+                                <label asp-for="Department" class="form-label fw-bold text-secondary">Department</label>
+                                <div class="input-group shadow-sm">
+                                    <span class="input-group-text bg-light border-end-0"><i class="fa-solid fa-building text-muted"></i></span>
+                                    <input asp-for="Department" class="form-control border-start-0" placeholder="e.g. Mathematics" />
+                                </div>
+                                <span asp-validation-for="Department" class="text-danger small mt-1 d-block"></span>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label asp-for="HireDate" class="form-label fw-bold text-secondary">Hire Date</label>
+                                <div class="input-group shadow-sm">
+                                    <span class="input-group-text bg-light border-end-0"><i class="fa-regular fa-calendar-check text-muted"></i></span>
+                                    <input asp-for="HireDate" class="form-control border-start-0" type="date" />
+                                </div>
+                                <span asp-validation-for="HireDate" class="text-danger small mt-1 d-block"></span>
+                            </div>
+                        </div>
+
+                        <hr class="text-muted opacity-25 my-4" />
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a asp-action="Index" class="btn btn-light border shadow-sm px-4 rounded-3 text-secondary fw-semibold">
+                                <i class="fa-solid fa-arrow-left me-2"></i> Cancel
+                            </a>
+                            <button type="submit" class="btn btn-primary px-5 shadow-sm rounded-3 fw-bold">
+                                <i class="fa-solid fa-floppy-disk me-2"></i> Save Changes
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

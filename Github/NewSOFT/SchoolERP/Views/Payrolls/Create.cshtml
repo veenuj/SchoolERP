@@ -1,0 +1,127 @@
+@model SchoolERP.Models.Payroll
+
+@{
+    ViewData["Title"] = "Generate Payroll";
+}
+
+<div class="container-fluid mt-4 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-9 col-md-11">
+            
+            <div class="text-center mb-4">
+                <h2 class="fw-bold text-dark">
+                    <i class="fa-solid fa-file-invoice-dollar text-success me-2"></i> Generate Staff Payroll
+                </h2>
+                <p class="text-muted">Calculate and record monthly salary distributions for faculty and staff.</p>
+            </div>
+
+            <div class="card shadow-sm border-0 rounded-4">
+                <div class="card-body p-5">
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3 fw-bold"></div>
+                        
+                        <h5 class="fw-bold text-primary mb-4"><i class="fa-solid fa-user-tie me-2"></i> Faculty & Timing</h5>
+                        <div class="row g-4 mb-5">
+                            <div class="col-md-6">
+                                <label asp-for="TeacherId" class="form-label fw-bold text-secondary">Select Faculty Member</label>
+                                <div class="input-group shadow-sm">
+                                    <span class="input-group-text bg-light border-end-0"><i class="fa-solid fa-users-rectangle text-muted"></i></span>
+                                    <select asp-for="TeacherId" class="form-select border-start-0" asp-items="ViewBag.TeacherId">
+                                        <option value="">-- Choose Employee --</option>
+                                    </select>
+                                </div>
+                                <span asp-validation-for="TeacherId" class="text-danger small mt-1 d-block"></span>
+                            </div>
+                            
+                            <div class="col-md-3">
+                                <label asp-for="Month" class="form-label fw-bold text-secondary">Salary Month</label>
+                                <div class="input-group shadow-sm">
+                                    <input asp-for="Month" class="form-control" placeholder="e.g. October" />
+                                </div>
+                                <span asp-validation-for="Month" class="text-danger small mt-1 d-block"></span>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label asp-for="Year" class="form-label fw-bold text-secondary">Year</label>
+                                <div class="input-group shadow-sm">
+                                    <input asp-for="Year" class="form-control" type="number" value="@DateTime.Now.Year" />
+                                </div>
+                                <span asp-validation-for="Year" class="text-danger small mt-1 d-block"></span>
+                            </div>
+                        </div>
+
+                        <h5 class="fw-bold text-primary mb-4"><i class="fa-solid fa-coins me-2"></i> Salary Structure</h5>
+                        
+                        <div class="row g-4 mb-5">
+                            <div class="col-md-4">
+                                <label asp-for="BaseSalary" class="form-label fw-bold text-secondary">Base Salary</label>
+                                <div class="input-group shadow-sm">
+                                    <span class="input-group-text bg-light border-end-0">₹</span>
+                                    <input asp-for="BaseSalary" class="form-control border-start-0" placeholder="0.00" />
+                                </div>
+                                <span asp-validation-for="BaseSalary" class="text-danger small mt-1 d-block"></span>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label asp-for="Allowances" class="form-label fw-bold text-secondary">Allowances (+)</label>
+                                <div class="input-group shadow-sm">
+                                    <span class="input-group-text bg-light border-end-0 text-success"><i class="fa-solid fa-plus"></i></span>
+                                    <input asp-for="Allowances" class="form-control border-start-0" placeholder="Bonuses/HRA" />
+                                </div>
+                                <span asp-validation-for="Allowances" class="text-danger small mt-1 d-block"></span>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label asp-for="Deductions" class="form-label fw-bold text-secondary">Deductions (-)</label>
+                                <div class="input-group shadow-sm">
+                                    <span class="input-group-text bg-light border-end-0 text-danger"><i class="fa-solid fa-minus"></i></span>
+                                    <input asp-for="Deductions" class="form-control border-start-0" placeholder="Tax/Leave" />
+                                </div>
+                                <span asp-validation-for="Deductions" class="text-danger small mt-1 d-block"></span>
+                            </div>
+                        </div>
+
+                        <h5 class="fw-bold text-primary mb-4"><i class="fa-solid fa-credit-card me-2"></i> Payment Finalization</h5>
+                        <div class="row g-4 align-items-center mb-4">
+                            <div class="col-md-6">
+                                <label asp-for="PaymentDate" class="form-label fw-bold text-secondary">Tentative Payment Date</label>
+                                <div class="input-group shadow-sm">
+                                    <span class="input-group-text bg-light border-end-0"><i class="fa-regular fa-calendar-check text-muted"></i></span>
+                                    <input asp-for="PaymentDate" class="form-control border-start-0" type="date" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                                </div>
+                                <span asp-validation-for="PaymentDate" class="text-danger small mt-1 d-block"></span>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="p-3 rounded-3 bg-light border mt-4">
+                                    <div class="form-check form-switch d-flex align-items-center justify-content-between px-0">
+                                        <label class="form-check-label fw-bold text-dark mb-0 ms-0" for="IsPaidSwitch">
+                                            <i class="fa-solid fa-money-bill-transfer text-success me-2"></i> Mark as Paid Immediately
+                                        </label>
+                                        <input class="form-check-input ms-0" type="checkbox" role="switch" id="IsPaidSwitch" asp-for="IsPaid" style="width: 3rem; height: 1.5rem;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="text-muted opacity-25 my-4" />
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a asp-action="Index" class="btn btn-light border shadow-sm px-4 rounded-3 text-secondary fw-semibold">
+                                <i class="fa-solid fa-arrow-left me-2"></i> Back to Payroll
+                            </a>
+                            <button type="submit" class="btn btn-success px-5 shadow-sm rounded-3 fw-bold">
+                                <i class="fa-solid fa-check-to-slot me-2"></i> Process Payroll
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

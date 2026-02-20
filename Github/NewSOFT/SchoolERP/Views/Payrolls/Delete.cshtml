@@ -1,0 +1,88 @@
+@model SchoolERP.Models.Payroll
+
+@{
+    ViewData["Title"] = "Void Payroll Record";
+}
+
+<div class="container-fluid mt-4 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8">
+            
+            <div class="text-center mb-4">
+                <h2 class="fw-bold text-danger">
+                    <i class="fa-solid fa-file-circle-xmark me-2"></i> Void Salary Record
+                </h2>
+                <p class="text-muted">Review the financial details carefully. This action will remove the record from the ledger.</p>
+            </div>
+
+            <div class="card shadow-sm border-0 rounded-4">
+                <div class="card-body p-5">
+                    
+                    <div class="alert alert-danger border-0 shadow-sm rounded-3 mb-4 d-flex align-items-center">
+                        <i class="fa-solid fa-triangle-exclamation fs-2 me-3 text-danger"></i>
+                        <div>
+                            <h6 class="fw-bold mb-1 text-danger">Financial Integrity Warning</h6>
+                            <p class="mb-0 small text-danger opacity-75">Deleting this payroll entry will affect the monthly expenditure reports. Please ensure this is not a paid record unless you intend to void the payment.</p>
+                        </div>
+                    </div>
+
+                    <h5 class="fw-bold text-dark border-bottom pb-3 mb-4">
+                        <i class="fa-solid fa-money-check-dollar text-primary me-2"></i> Payroll Summary
+                    </h5>
+
+                    <div class="row g-3 mb-4 fs-6">
+                        <div class="col-sm-4 text-secondary fw-bold mt-2">Faculty Member</div>
+                        <div class="col-sm-8 text-dark fw-semibold mt-2">
+                            <i class="fa-solid fa-user-tie text-muted me-2"></i>
+                            @(Model.Teacher != null ? $"{Model.Teacher.FirstName} {Model.Teacher.LastName}" : "Unknown Faculty")
+                        </div>
+
+                        <div class="col-sm-4 text-secondary fw-bold mt-3">Payroll Period</div>
+                        <div class="col-sm-8 text-dark fw-semibold mt-3">
+                            <span class="badge bg-light text-dark border px-3 py-2 shadow-sm">
+                                <i class="fa-regular fa-calendar-check text-muted me-1"></i> @Model.Month @Model.Year
+                            </span>
+                        </div>
+
+                        <div class="col-sm-4 text-secondary fw-bold mt-3">Net Payable</div>
+                        <div class="col-sm-8 text-dark fw-bold mt-3 fs-5">
+                            <span class="text-primary">₹@Model.NetSalary.ToString("N2")</span>
+                        </div>
+
+                        <div class="col-sm-4 text-secondary fw-bold mt-3 align-self-center">Payment Status</div>
+                        <div class="col-sm-8 text-dark mt-3">
+                            @if (Model.IsPaid)
+                            {
+                                <span class="badge bg-success bg-opacity-10 text-success border border-success px-3 py-2">
+                                    <i class="fa-solid fa-check-double me-1"></i> PAID
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-warning bg-opacity-10 text-warning border border-warning px-3 py-2">
+                                    <i class="fa-solid fa-clock me-1"></i> PENDING
+                                </span>
+                            }
+                        </div>
+                    </div>
+
+                    <hr class="text-muted opacity-25 mb-4" />
+
+                    <form asp-action="Delete" class="d-flex justify-content-between align-items-center">
+                        <input type="hidden" asp-for="Id" />
+                        
+                        <a asp-action="Index" class="btn btn-light border shadow-sm px-4 rounded-3 text-secondary fw-semibold">
+                            <i class="fa-solid fa-arrow-left me-2"></i> Cancel
+                        </a>
+                        
+                        <button type="submit" class="btn btn-danger px-5 shadow-sm rounded-3 fw-bold">
+                            <i class="fa-solid fa-trash-can me-2"></i> Delete Record
+                        </button>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

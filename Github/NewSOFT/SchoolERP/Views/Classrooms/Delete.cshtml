@@ -1,0 +1,74 @@
+@model SchoolERP.Models.Classroom
+
+@{
+    ViewData["Title"] = "Remove Classroom";
+}
+
+<div class="container-fluid mt-4 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8">
+            
+            <div class="text-center mb-4">
+                <h2 class="fw-bold text-danger">
+                    <i class="fa-solid fa-triangle-exclamation me-2"></i> Remove Classroom
+                </h2>
+                <p class="text-muted">Please review the details below before permanently deleting this classroom.</p>
+            </div>
+
+            <div class="card shadow-sm border-0 rounded-4">
+                <div class="card-body p-5">
+                    
+                    <div class="alert alert-danger border-0 shadow-sm rounded-3 mb-4 d-flex align-items-center">
+                        <i class="fa-solid fa-circle-exclamation fs-2 me-3 text-danger"></i>
+                        <div>
+                            <h6 class="fw-bold mb-1 text-danger">Confirm Deletion</h6>
+                            <p class="mb-0 small text-danger opacity-75">This action cannot be undone. The classroom will be permanently erased. Please ensure no active students are currently enrolled in this room before proceeding.</p>
+                        </div>
+                    </div>
+
+                    <h5 class="fw-bold text-dark border-bottom pb-3 mb-4">
+                        <i class="fa-solid fa-door-open text-primary me-2"></i> Classroom Details
+                    </h5>
+
+                    <div class="row g-3 mb-4 fs-6">
+                        <div class="col-sm-4 text-secondary fw-bold mt-2">Room Number</div>
+                        <div class="col-sm-8 text-dark fw-semibold mt-2">
+                            <span class="badge bg-light text-dark border px-3 py-2 fs-6 shadow-sm">
+                                <i class="fa-solid fa-hashtag text-muted me-1"></i> @Html.DisplayFor(model => model.RoomNumber)
+                            </span>
+                        </div>
+
+                        <div class="col-sm-4 text-secondary fw-bold mt-3">Subject Focus</div>
+                        <div class="col-sm-8 text-dark mt-3 fw-semibold">
+                            <i class="fa-solid fa-book text-muted me-1"></i> @Html.DisplayFor(model => model.Subject)
+                        </div>
+
+                        <div class="col-sm-4 text-secondary fw-bold mt-3 align-self-center">Assigned Teacher</div>
+                        <div class="col-sm-8 text-dark mt-3">
+                            <span class="badge bg-success bg-opacity-10 text-dark border px-3 py-2 fs-6 shadow-sm">
+                                <i class="fa-solid fa-user-tie text-success me-1"></i> 
+                                @(Model.Teacher != null ? $"{Model.Teacher.FirstName} {Model.Teacher.LastName}" : "Unassigned")
+                            </span>
+                        </div>
+                    </div>
+
+                    <hr class="text-muted opacity-25 mb-4" />
+
+                    <form asp-action="Delete" class="d-flex justify-content-between align-items-center">
+                        <input type="hidden" asp-for="Id" />
+                        
+                        <a asp-action="Index" class="btn btn-light border shadow-sm px-4 rounded-3 text-secondary fw-semibold">
+                            <i class="fa-solid fa-arrow-left me-2"></i> Cancel
+                        </a>
+                        
+                        <button type="submit" class="btn btn-danger px-5 shadow-sm rounded-3 fw-bold">
+                            <i class="fa-solid fa-trash-can me-2"></i> Confirm Delete
+                        </button>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

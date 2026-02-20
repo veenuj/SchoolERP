@@ -1,0 +1,90 @@
+@model IEnumerable<SchoolERP.Models.Payroll>
+
+@{
+    ViewData["Title"] = "Staff Payroll";
+    var totalPayroll = Model.Sum(p => p.NetSalary);
+    var pendingCount = Model.Count(p => !p.IsPaid);
+}
+
+<div class="container-fluid mt-4 mb-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="fw-bold text-dark mb-0"><i class="fa-solid fa-wallet text-success me-2"></i> Payroll Management</h2>
+            <p class="text-muted mb-0">Manage faculty salaries and track payment distributions.</p>
+        </div>
+        <a asp-action="Create" class="btn btn-success shadow-sm px-4 rounded-3 fw-bold">
+            <i class="fa-solid fa-plus me-2"></i> Generate Payroll
+        </a>
+    </div>
+
+    <div class="row g-3 mb-4">
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm rounded-4 p-3 border-start border-primary border-4">
+                <small class="text-muted fw-bold text-uppercase">Total Expenditure</small>
+                <h3 class="fw-bold mb-0">₹@totalPayroll.ToString("N2")</h3>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm rounded-4 p-3 border-start border-warning border-4">
+                <small class="text-muted fw-bold text-uppercase">Pending Payments</small>
+                <h3 class="fw-bold mb-0 text-warning">@pendingCount</h3>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm rounded-4 p-3 border-start border-success border-4">
+                <small class="text-muted fw-bold text-uppercase">System Status</small>
+                <h3 class="fw-bold mb-0 text-success text-uppercase fs-5 mt-2">All Engines Online</h3>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <div class="card shadow-sm border-0 rounded-4 overflow-hidden">
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="bg-light">
+                        <tr class="text-secondary">
+                            <th class="ps-4 py-3 fw-bold">Faculty Member</th>
+                            <th class="py-3 fw-bold">Period</th>
+                            <th class="py-3 fw-bold">Net Salary</th>
+                            <th class="py-3 fw-bold">Status</th>
+                            <th class="text-end pe-4 py-3 fw-bold">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model) {
+                            <tr>
+                                <td class="ps-4">
+                                    <div class="d-flex align-items-center">
+                                        <div class="bg-success bg-opacity-10 text-success rounded-circle p-2 me-3">
+                                            <i class="fa-solid fa-user-tie"></i>
+                                        </div>
+                                        <span class="fw-bold text-dark">@(item.Teacher?.FirstName) @(item.Teacher?.LastName)</span>
+                                    </div>
+                                </td>
+                                <td>@item.Month @item.Year</td>
+                                <td class="fw-bold">₹@item.NetSalary.ToString("N2")</td>
+                                <td>
+                                    @if (item.IsPaid) {
+                                        <span class="badge bg-success bg-opacity-10 text-success rounded-pill px-3 border border-success">Paid</span>
+                                    } else {
+                                        <span class="badge bg-warning bg-opacity-10 text-warning rounded-pill px-3 border border-warning">Pending</span>
+                                    }
+                                </td>
+                                <td class="text-end pe-4">
+                                    <div class="btn-group shadow-sm">
+                                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-white btn-sm border-end px-3"><i class="fa-solid fa-file-invoice text-info"></i></a>
+                                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-white btn-sm border-end px-3"><i class="fa-solid fa-pen text-primary"></i></a>
+                                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-white btn-sm px-3"><i class="fa-solid fa-trash text-danger"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

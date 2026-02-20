@@ -1,0 +1,134 @@
+@model IEnumerable<SchoolERP.Models.Attendance>
+
+@{
+    ViewData["Title"] = "Attendance Records";
+    // Calculate quick stats for the dashboard feel
+    var totalRecords = Model.Count();
+    var presentCount = Model.Count(a => a.IsPresent);
+    var absentCount = totalRecords - presentCount;
+    var attendanceRate = totalRecords > 0 ? (double)presentCount / totalRecords * 100 : 0;
+}
+
+<div class="container-fluid mt-4 mb-5">
+    
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="fw-bold text-dark mb-0">
+                <i class="fa-solid fa-clipboard-user text-primary me-2"></i> Attendance Log
+            </h2>
+            <p class="text-muted mb-0">Monitor and manage daily student presence records.</p>
+        </div>
+        <div class="d-flex gap-2">
+            <a asp-action="Create" class="btn btn-primary shadow-sm px-4 rounded-3 fw-bold">
+                <i class="fa-solid fa-pen-to-square me-2"></i> Mark Attendance
+            </a>
+        </div>
+    </div>
+
+    <div class="row g-3 mb-4">
+        <div class="col-md-3">
+            <div class="card border-0 shadow-sm rounded-4 bg-white p-3 border-start border-primary border-4">
+                <small class="text-muted fw-bold text-uppercase fs-xs">Total Logs</small>
+                <h4 class="fw-bold mb-0">@totalRecords</h4>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card border-0 shadow-sm rounded-4 bg-white p-3 border-start border-success border-4">
+                <small class="text-muted fw-bold text-uppercase fs-xs">Present</small>
+                <h4 class="fw-bold mb-0 text-success">@presentCount</h4>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card border-0 shadow-sm rounded-4 bg-white p-3 border-start border-danger border-4">
+                <small class="text-muted fw-bold text-uppercase fs-xs">Absent</small>
+                <h4 class="fw-bold mb-0 text-danger">@absentCount</h4>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card border-0 shadow-sm rounded-4 bg-white p-3 border-start border-warning border-4">
+                <small class="text-muted fw-bold text-uppercase fs-xs">Attendance Rate</small>
+                <h4 class="fw-bold mb-0 text-dark">@attendanceRate.ToString("0.0")%</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="card shadow-sm border-0 rounded-4 overflow-hidden">
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="bg-light">
+                        <tr class="text-secondary">
+                            <th class="ps-4 py-3 text-uppercase fs-7 fw-bold">Student Name</th>
+                            <th class="py-3 text-uppercase fs-7 fw-bold">Date</th>
+                            <th class="py-3 text-uppercase fs-7 fw-bold">Status</th>
+                            <th class="text-end pe-4 py-3 text-uppercase fs-7 fw-bold">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (!Model.Any())
+                        {
+                            <tr>
+                                <td colspan="4" class="text-center py-5">
+                                    <i class="fa-solid fa-calendar-minus text-muted fs-1 d-block mb-3"></i>
+                                    <span class="text-muted fw-semibold">No attendance records found for this period.</span>
+                                </td>
+                            </tr>
+                        }
+                        else
+                        {
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="ps-4">
+                                        <div class="d-flex align-items-center">
+                                            <div class="bg-light text-primary rounded-circle d-flex justify-content-center align-items-center me-3 shadow-sm" style="width: 38px; height: 38px; font-weight: bold;">
+                                                @(item.Student != null ? item.Student.FirstName.Substring(0, 1) : "?")
+                                            </div>
+                                            <div>
+                                                <span class="fw-bold text-dark d-block">@(item.Student != null ? $"{item.Student.FirstName} {item.Student.LastName}" : "Unknown")</span>
+                                                <small class="text-muted">ID: @(item.Student?.EnrollmentNumber ?? "N/A")</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="text-dark">
+                                            <i class="fa-regular fa-calendar me-1 text-muted"></i>
+                                            @item.Date.ToShortDateString()
+                                        </div>
+                                    </td>
+                                    <td>
+                                        @if (item.IsPresent)
+                                        {
+                                            <span class="badge bg-success bg-opacity-10 text-success rounded-pill px-3 py-2 border border-success border-opacity-25">
+                                                <i class="fa-solid fa-circle-check me-1"></i> Present
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-danger bg-opacity-10 text-danger rounded-pill px-3 py-2 border border-danger border-opacity-25">
+                                                <i class="fa-solid fa-circle-xmark me-1"></i> Absent
+                                            </span>
+                                        }
+                                    </td>
+                                    <td class="text-end pe-4">
+                                        <div class="btn-group shadow-sm rounded-3 overflow-hidden">
+                                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-white btn-sm border-end px-3" title="View Details">
+                                                <i class="fa-solid fa-eye text-info"></i>
+                                            </a>
+                                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-white btn-sm border-end px-3" title="Edit Entry">
+                                                <i class="fa-solid fa-pen text-primary"></i>
+                                            </a>
+                                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-white btn-sm px-3" title="Delete Entry">
+                                                <i class="fa-solid fa-trash text-danger"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

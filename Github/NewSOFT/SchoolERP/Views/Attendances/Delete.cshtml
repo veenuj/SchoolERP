@@ -1,0 +1,82 @@
+@model SchoolERP.Models.Attendance
+
+@{
+    ViewData["Title"] = "Remove Attendance Record";
+}
+
+<div class="container-fluid mt-4 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8">
+            
+            <div class="text-center mb-4">
+                <h2 class="fw-bold text-danger">
+                    <i class="fa-solid fa-eraser me-2"></i> Remove Attendance Entry
+                </h2>
+                <p class="text-muted">Please verify the student and date before permanently deleting this record.</p>
+            </div>
+
+            <div class="card shadow-sm border-0 rounded-4">
+                <div class="card-body p-5">
+                    
+                    <div class="alert alert-danger border-0 shadow-sm rounded-3 mb-4 d-flex align-items-center">
+                        <i class="fa-solid fa-triangle-exclamation fs-2 me-3 text-danger"></i>
+                        <div>
+                            <h6 class="fw-bold mb-1 text-danger">Irreversible Action</h6>
+                            <p class="mb-0 small text-danger opacity-75">Deleting this entry will remove it from the student's history. This may affect their overall attendance percentage.</p>
+                        </div>
+                    </div>
+
+                    <h5 class="fw-bold text-dark border-bottom pb-3 mb-4">
+                        <i class="fa-solid fa-clipboard-user text-primary me-2"></i> Entry Details
+                    </h5>
+
+                    <div class="row g-3 mb-4 fs-6">
+                        <div class="col-sm-4 text-secondary fw-bold mt-2">Student</div>
+                        <div class="col-sm-8 text-dark fw-semibold mt-2">
+                            <i class="fa-solid fa-user-graduate text-muted me-2"></i>
+                            @(Model.Student != null ? $"{Model.Student.FirstName} {Model.Student.LastName}" : "Unknown")
+                        </div>
+
+                        <div class="col-sm-4 text-secondary fw-bold mt-3">Log Date</div>
+                        <div class="col-sm-8 text-dark fw-semibold mt-3">
+                            <i class="fa-regular fa-calendar-xmark text-muted me-2"></i>
+                            @Model.Date.ToLongDateString()
+                        </div>
+
+                        <div class="col-sm-4 text-secondary fw-bold mt-3 align-self-center">Recorded Status</div>
+                        <div class="col-sm-8 text-dark mt-3">
+                            @if (Model.IsPresent)
+                            {
+                                <span class="badge bg-success bg-opacity-10 text-success border border-success px-3 py-2">
+                                    <i class="fa-solid fa-check me-1"></i> Present
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-danger bg-opacity-10 text-danger border border-danger px-3 py-2">
+                                    <i class="fa-solid fa-xmark me-1"></i> Absent
+                                </span>
+                            }
+                        </div>
+                    </div>
+
+                    <hr class="text-muted opacity-25 mb-4" />
+
+                    <form asp-action="Delete" class="d-flex justify-content-between align-items-center">
+                        <input type="hidden" asp-for="Id" />
+                        
+                        <a asp-action="Index" class="btn btn-light border shadow-sm px-4 rounded-3 text-secondary fw-semibold">
+                            <i class="fa-solid fa-arrow-left me-2"></i> Cancel
+                        </a>
+                        
+                        <button type="submit" class="btn btn-danger px-5 shadow-sm rounded-3 fw-bold">
+                            <i class="fa-solid fa-trash-can me-2"></i> Confirm Delete
+                        </button>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
