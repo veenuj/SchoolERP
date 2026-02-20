@@ -17,7 +17,7 @@
 | **📊 Executive Dashboard** | Real-time analytics for Student/Teacher ratios and financial health KPIs. |
 | **💰 Financial Engine** | Automated Payroll management with dynamic tax/allowance calculations. |
 | **📅 Attendance 360** | Deep-linked attendance tracking with automated reporting for LKG to 12th. |
-| **🏫 Relational Mapping** | Seamless connectivity between Teachers, Classrooms, and the Science/Commerce/Arts streams. |
+| **🏫 Relational Mapping** | Seamless connectivity between Teachers, Classrooms, and Science/Commerce/Arts streams. |
 
 ---
 
@@ -36,11 +36,25 @@
 
 ---
 
-## 📐 System Architecture
+## 🏗️ Database Schema & Relations
+The system utilizes a highly normalized PostgreSQL schema to ensure data consistency across 200+ student records and faculty payrolls.
 
 
 
-The system utilizes a **Service-Pattern Architecture** to decouple business logic (AI Processing, Payroll Calculations) from the Controllers, ensuring high maintainability and scalability.
+* **One-to-Many:** Teachers to Classrooms.
+* **One-to-Many:** Classrooms to Students.
+* **One-to-Many:** Students to Attendance Logs.
+* **One-to-One:** Teacher to Monthly Payroll Record.
+
+---
+
+## 🔮 Roadmap & Future Enhancements
+The project is under active development. Upcoming milestones include:
+
+- [ ] **📈 Student Performance Analytics:** AI-driven grade prediction based on attendance and test scores.
+- [ ] **📱 Mobile Parent Portal:** A dedicated view for parents to track real-time attendance via mobile.
+- [ ] **📧 Automated Notifications:** Integration with SendGrid for automated fee reminders and payroll slips.
+- [ ] **🛡️ Role-Based Access Control (RBAC):** Granular permissions for Admins, Teachers, and Accountants.
 
 ---
 
