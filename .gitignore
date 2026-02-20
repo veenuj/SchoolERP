@@ -1,0 +1,51 @@
+## [ Visual Studio / .NET Core ]
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# .NET Core & Entity Framework
+project.lock.json
+project.fragment.lock.json
+artifacts/
+*.{nupkg,snupkg}
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Secrets & Local Config
+appsettings.Development.json
+secrets.json
+.env
+
+## [ Visual Studio Code ]
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/
+
+## [ macOS ]
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+Network Trash Folder
+Temporary Items
+.apdisk
+
+## [ Database ]
+*.db
+*.sqlite
